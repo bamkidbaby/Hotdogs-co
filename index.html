@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HotDogz Co. 🌭</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .glow:hover {
+      filter: drop-shadow(0 0 10px #ff8800);
+      transform: scale(1.05);
+    }
+    .hotdog-bar {
+      transition: all .3s ease;
+    }
+    .bar-open:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .bar-open:nth-child(2) {
+      opacity: 0;
+    }
+    .bar-open:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .slide {
+      transition: max-height .4s ease;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Navbar -->
+  <header class="fixed w-full top-0 left-0 z-50 bg-black/60 backdrop-blur-md border-b border-orange-400/20">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+      <h1 class="text-2xl font-extrabold text-orange-400">HOTDOGZ<span class="text-yellow-400">Co.</span></h1>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-8 text-lg">
+        <a href="#home" class="hover:text-yellow-400">Home</a>
+        <a href="#menu" class="hover:text-yellow-400">Menu</a>
+        <a href="#about" class="hover:text-yellow-400">About</a>
+        <a href="#contact" class="hover:text-yellow-400">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <button id="cartBtn" class="hidden md:flex items-center gap-2 bg-gradient-to-r from-orange-500 to-yellow-400 px-4 py-2 rounded-full font-semibold text-black glow">
+          🛒 <span id="cartCount">0</span>
+        </button>
+        <button id="orderOpen" class="hidden md:block bg-gradient-to-r from-orange-500 to-yellow-400 px-5 py-2 rounded-full font-semibold text-black glow">
+          Order Now
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <div id="menuBtn" class="md:hidden flex flex-col justify-center cursor-pointer">
+          <div class="w-8 h-1 bg-yellow-400 mb-1 hotdog-bar"></div>
+          <div class="w-8 h-1 bg-yellow-400 mb-1 hotdog-bar"></div>
+          <div class="w-8 h-1 bg-yellow-400 hotdog-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="slide max-h-0 flex-col items-center bg-black/90 text-lg space-y-6 py-0 border-t border-orange-400/20">
+      <a href="#home" class="hover:text-orange-400">Home</a>
+      <a href="#menu" class="hover:text-orange-400">Menu</a>
+      <a href="#about" class="hover:text-orange-400">About</a>
+      <a href="#contact" class="hover:text-orange-400">Contact</a>
+      <button id="orderOpen2" class="bg-gradient-to-r from-orange-500 to-yellow-400 px-6 py-2 rounded-full font-semibold text-black glow">
+        Order Now
+      </button>
+      <button id="cartBtn2" class="flex items-center gap-2 bg-gradient-to-r from-orange-500 to-yellow-400 px-4 py-2 rounded-full font-semibold text-black glow">
+        🛒 <span id="cartCount2">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="pt-32 pb-20 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-10">
+    <div class="max-w-xl text-center md:text-left">
+      <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+        Bite Into The <span class="text-orange-400">Future</span> of <br>
+        <span class="text-yellow-400">Hot Dogs 🌭</span>
+      </h2>
+      <p class="text-gray-300 mb-8 text-lg">
+        Juicy. Smoky. Legendary. Crafted with love and fire to keep your taste buds smiling.
+      </p>
+      <div class="space-x-4">
+        <button id="orderOpen3" class="bg-gradient-to-r from-orange-500 to-yellow-400 px-6 py-3 rounded-full font-semibold text-black glow">Order Now</button>
+        <button class="border-2 border-yellow-400 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 hover:text-black transition">View Menu</button>
+      </div>
+    </div>
+
+    <div class="flex justify-center md:justify-end">
+      <img src="https://images.unsplash.com/photo-1565958011705-44e211b320a2?w=800" alt="Hotdog" class="w-[350px] md:w-[500px] rounded-3xl shadow-2xl glow animate-bounce-slow">
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="px-6 md:px-16 py-16 bg-gradient-to-r from-orange-500/10 to-yellow-400/10">
+    <h3 class="text-3xl font-bold text-center mb-10">🔥 Our Best Sellers</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+      <div class="p-6 rounded-2xl glow bg-black/40 border border-orange-400/20">
+        <img src="https://images.unsplash.com/photo-1626194394322-6cf9cb1b4a04?w=500" class="rounded-xl mb-4 mx-auto" alt="">
+        <h4 class="text-xl font-semibold mb-2 text-yellow-400">Cheesy Blast</h4>
+        <p class="text-gray-400 mb-4">Melting cheese, smoky sausage — the classic favorite.</p>
+        <button class="addCart bg-gradient-to-r from-orange-500 to-yellow-400 px-5 py-2 rounded-full font-semibold text-black glow">Add to Cart</button>
+      </div>
+      <div class="p-6 rounded-2xl glow bg-black/40 border border-orange-400/20">
+        <img src="https://images.unsplash.com/photo-1603048297172-c92544798d5a?w=500" class="rounded-xl mb-4 mx-auto" alt="">
+        <h4 class="text-xl font-semibold mb-2 text-yellow-400">Spicy Inferno</h4>
+        <p class="text-gray-400 mb-4">For those who like it hot — fiery sauce and crisp onions.</p>
+        <button class="addCart bg-gradient-to-r from-orange-500 to-yellow-400 px-5 py-2 rounded-full font-semibold text-black glow">Add to Cart</button>
+      </div>
+      <div class="p-6 rounded-2xl glow bg-black/40 border border-orange-400/20">
+        <img src="https://images.unsplash.com/photo-1565958011705-44e211b320a2?w=500" class="rounded-xl mb-4 mx-auto" alt="">
+        <h4 class="text-xl font-semibold mb-2 text-yellow-400">Smoky BBQ</h4>
+        <p class="text-gray-400 mb-4">Grilled to perfection with our signature BBQ glaze.</p>
+        <button class="addCart bg-gradient-to-r from-orange-500 to-yellow-400 px-5 py-2 rounded-full font-semibold text-black glow">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="py-10 text-center border-t border-orange-400/20 bg-black/60">
+    <p class="text-gray-400">
+      © 2025 HotDogz Co. | Crafted with 🌭 by <span class="text-orange-400 font-bold">P3TER CREATES</span><br>
+      <a href="https://wa.me/2347041078074" target="_blank" class="text-yellow-400 hover:text-orange-400 mt-2 inline-block">📞 Contact Me on WhatsApp</a>
+    </p>
+  </footer>
+
+  <!-- Order Modal -->
+  <div id="orderModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div class="bg-black/90 border border-yellow-400/30 rounded-2xl p-8 max-w-md text-center">
+      <h3 class="text-2xl font-bold mb-4 text-yellow-400">Place Your Order</h3>
+      <p class="text-gray-300 mb-6">WhatsApp us to complete your order. We'll handle it fast and fresh!</p>
+      <a href="https://wa.me/2347041078074" target="_blank" class="bg-gradient-to-r from-orange-500 to-yellow-400 text-black px-6 py-3 rounded-full font-semibold glow">Order on WhatsApp</a>
+      <div class="mt-6">
+        <button id="orderClose" class="text-gray-400 hover:text-yellow-400 underline">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const bars = menuBtn.querySelectorAll(".hotdog-bar");
+    let menuOpen = false;
+
+    menuBtn.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+      bars.forEach(b => b.classList.toggle("bar-open"));
+      mobileMenu.style.maxHeight = menuOpen ? "400px" : "0";
+      mobileMenu.style.padding = menuOpen ? "1.5rem 0" : "0";
+    });
+
+    // Cart Counter
+    const addBtns = document.querySelectorAll(".addCart");
+    const cartCount = document.getElementById("cartCount");
+    const cartCount2 = document.getElementById("cartCount2");
+    let count = 0;
+
+    addBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        count++;
+        cartCount.textContent = count;
+        cartCount2.textContent = count;
+        document.querySelectorAll("#cartBtn, #cartBtn2").forEach(c => c.classList.add("ring-4", "ring-yellow-400"));
+        setTimeout(() => {
+          document.querySelectorAll("#cartBtn, #cartBtn2").forEach(c => c.classList.remove("ring-4", "ring-yellow-400"));
+        }, 500);
+      });
+    });
+
+    // Order Modal
+    const modal = document.getElementById("orderModal");
+    const openBtns = document.querySelectorAll("#orderOpen, #orderOpen2, #orderOpen3");
+    const closeBtn = document.getElementById("orderClose");
+
+    openBtns.forEach(o => o.addEventListener("click", () => modal.classList.remove("hidden")));
+    closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+  </script>
+</body>
+</html>
